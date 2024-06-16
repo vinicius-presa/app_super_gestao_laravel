@@ -32,7 +32,7 @@ Route::prefix('/app')->group(function(){
 });
 
 //redirecionamento 
-
+/*
 Route::get('rota1', function(){
     return redirect()->route('site.rota2');
 })->name('site.rota1');
@@ -40,7 +40,7 @@ Route::get('rota1', function(){
 Route::get('/rota2', function(){
     echo 'Rota2';
 })->name('site.rota2');
-
+*/
 Route::fallback(function(){
     echo 'A rota nao existe. <a href="'.route('site.index').'">clique aqui</a> para ser redirecionado';
 });
