@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,31 +12,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PrincipalController@principal')->name('site.index');
+Route::get('/', 'PrincipalController@principal')
+    ->name('site.index');
 
-Route::get('/sobre-nos', 'sobreNosController@sobreNos')->name('site.sobrenos');
+Route::get('/sobre-nos', 'sobreNosController@sobreNos')
+    ->name('site.sobrenos');
 
-Route::get('/contato', 'ContatoController@contato')->name('site.contato');
-Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
+Route::get('/contato', 'ContatoController@contato')
+    ->name('site.contato');
+Route::post('/contato', 'ContatoController@salvar')
+    ->name('site.contato');
 
-Route::get('/login', 'LoginController@login')->name('site.login');
+Route::get('/login', 'LoginController@login')
+    ->name('site.login');
 
-Route::prefix('/app')->group(function(){
-    Route::get('/clientes', 'ClientesController@clientes')->name('app.clientes');
-    Route::get('/fornecedores', 'FornecedoresController@index')->name('app.fornecedores');
-    Route::get('/produtos', 'ProdutosController@produtos')->name('app.produtos');
+Route::middleware('autenticacao')->prefix('/app')->group(function(){
+    Route::get('/clientes', 'ClientesController@clientes')
+        ->name('app.clientes');
+    Route::get('/fornecedores', 'FornecedoresController@index')
+        ->name('app.fornecedores');
+    Route::get('/produtos', 'ProdutosController@produtos')
+        ->name('app.produtos');
 });
 
-//redirecionamento 
-/*
-Route::get('rota1', function(){
-    return redirect()->route('site.rota2');
-})->name('site.rota1');
 
-Route::get('/rota2', function(){
-    echo 'Rota2';
-})->name('site.rota2');
-*/
 Route::fallback(function(){
     echo 'A rota nao existe. <a href="'.route('site.index').'">clique aqui</a> para ser redirecionado';
 });
