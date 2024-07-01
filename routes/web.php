@@ -23,16 +23,22 @@ Route::get('/contato', 'ContatoController@contato')
 Route::post('/contato', 'ContatoController@salvar')
     ->name('site.contato');
 
-Route::get('/login', 'LoginController@login')
+Route::get('/login/{erro?}', 'LoginController@index')
     ->name('site.login');
+Route::post('/login', 'LoginController@autenticar')
+    ->name('site.login');    
 
 Route::middleware('autenticacao')->prefix('/app')->group(function(){
-    Route::get('/clientes', 'ClientesController@clientes')
-        ->name('app.clientes');
-    Route::get('/fornecedores', 'FornecedoresController@index')
-        ->name('app.fornecedores');
-    Route::get('/produtos', 'ProdutosController@produtos')
-        ->name('app.produtos');
+    Route::get('/home', 'HomeController@index')
+        ->name('app.home');
+    Route::get('/sair', 'LoginController@sair')
+        ->name('app.sair');    
+    Route::get('/cliente', 'ClientesController@index')
+        ->name('app.cliente');
+    Route::get('/fornecedor', 'FornecedoresController@index')
+        ->name('app.fornecedor');
+    Route::get('/produto', 'ProdutosController@index')
+        ->name('app.produto');
 });
 
 
