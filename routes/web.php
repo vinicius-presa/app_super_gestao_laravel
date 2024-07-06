@@ -12,33 +12,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PrincipalController@principal')
-    ->name('site.index');
-
-Route::get('/sobre-nos', 'sobreNosController@sobreNos')
-    ->name('site.sobrenos');
-
-Route::get('/contato', 'ContatoController@contato')
-    ->name('site.contato');
-Route::post('/contato', 'ContatoController@salvar')
-    ->name('site.contato');
-
-Route::get('/login/{erro?}', 'LoginController@index')
-    ->name('site.login');
-Route::post('/login', 'LoginController@autenticar')
-    ->name('site.login');    
+Route::get('/', 'PrincipalController@principal')->name('site.index');
+Route::get('/sobre-nos', 'sobreNosController@sobreNos')->name('site.sobrenos');
+Route::get('/contato', 'ContatoController@contato')->name('site.contato');
+Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
+Route::get('/login/{erro?}', 'LoginController@index')->name('site.login');
+Route::post('/login', 'LoginController@autenticar')->name('site.login');    
 
 Route::middleware('autenticacao')->prefix('/app')->group(function(){
-    Route::get('/home', 'HomeController@index')
-        ->name('app.home');
-    Route::get('/sair', 'LoginController@sair')
-        ->name('app.sair');    
-    Route::get('/cliente', 'ClientesController@index')
-        ->name('app.cliente');
-    Route::get('/fornecedor', 'FornecedoresController@index')
-        ->name('app.fornecedor');
-    Route::get('/produto', 'ProdutosController@index')
-        ->name('app.produto');
+    Route::get('/home', 'HomeController@index')->name('app.home');
+    Route::get('/sair', 'LoginController@sair')->name('app.sair');    
+    Route::get('/cliente', 'ClientesController@index')->name('app.cliente');
+    
+    Route::get('/fornecedor/{msg?}', 'FornecedoresController@index')->name('app.fornecedor');
+    Route::post('/fornecedor/listar', 'FornecedoresController@listar')->name('app.fornecedor.listar');
+    Route::get('/fornecedor/listar', 'FornecedoresController@listar')->name('app.fornecedor.listar');
+    Route::get('/fornecedor/adicionar', 'FornecedoresController@adicionar')->name('app.fornecedor.adicionar');
+    Route::post('/fornecedor/adicionar', 'FornecedoresController@adicionar')->name('app.fornecedor.adicionar');
+    Route::get('/fornecedor/editar/{id}/{msg?}', 'FornecedoresController@editar')->name('app.fornecedor.editar');
+    Route::get('/fornecedor/excluir/{id}', 'FornecedoresController@excluir')->name('app.fornecedor.excluir');
+
+
+
+    Route::get('/produto', 'ProdutosController@index')->name('app.produto');
 });
 
 
