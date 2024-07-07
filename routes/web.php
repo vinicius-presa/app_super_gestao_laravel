@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,9 @@ Route::middleware('autenticacao')->prefix('/app')->group(function(){
     Route::get('/fornecedor/editar/{id}/{msg?}', 'FornecedoresController@editar')->name('app.fornecedor.editar');
     Route::get('/fornecedor/excluir/{id}', 'FornecedoresController@excluir')->name('app.fornecedor.excluir');
 
-
-
-    Route::get('/produto', 'ProdutosController@index')->name('app.produto');
+    //produtos
+    Route::resource('produto', 'ProdutoController');
+    
 });
 
 
