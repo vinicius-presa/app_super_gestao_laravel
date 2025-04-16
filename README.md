@@ -11,6 +11,7 @@
     
 </div>
 </div>
+
 Desenvolvida em PHP com Laravel
 
 Super Gestão é uma aplicação para simplificar o controle administrativo que pode transformar e potencializar os negócios de uma empresa. Com uma interface intuitiva, a plataforma oferece uma solução completa para a gestão de clientes, fornecedores e produtos, garantindo praticidade e precisão.
