@@ -61,7 +61,7 @@ Para os gestores, a plataforma disponibiliza um painel completo.
 
 ## 💎 Links úteis 💎
 
-- [Repositorio(https://github.com/vinicius-presa/app_super_gestao_laravel)
+- [Repositorio (https://github.com/vinicius-presa/app_super_gestao_laravel)
  
 
 
