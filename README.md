@@ -57,7 +57,12 @@ Para os gestores, a plataforma disponibiliza um painel completo.
 
 - Interface Intuitiva
 - Cadastro rápido de fornecedores, produtos e clientes.
-- Consulta padronizada. 
+- Consulta padronizada.
+
+## 💎 Links úteis 💎
+
+- [Repositorio(https://github.com/vinicius-presa/app_super_gestao_laravel)
+ 
 
 
 
